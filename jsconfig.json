@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "utils/*": [
+        "./src/Utils/*"
+      ],
+      "backend/*": [
+        "./src/Backend/*"
+      ],
+      "assets/*": [
+        "./src/Assets/*"
+      ],
+      "frontend/*": [
+        "./src/Frontend/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.js"
+  ]
+}
