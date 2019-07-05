@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
+import { THEME_DEFAULT } from 'utils/globalStyles'
 
 const IconFontAwesomeAnimated = Animated.createAnimatedComponent(IconFontAwesome)
 const IconIoniconsAnimated = Animated.createAnimatedComponent(IconIonicons)
@@ -58,7 +59,7 @@ export default class Toggle extends React.PureComponent {
     })
     const colorBtnFire = width.interpolate({
       inputRange: [TOGGE_WIDTH / 2, TOGGE_WIDTH + TOGGE_PADDING],
-      outputRange: [isActive ? 'transparent' : IconColor, isLeft ? '#e35914' : IconColor]
+      outputRange: [isActive ? 'transparent' : IconColor, isLeft ? THEME_DEFAULT.colorPink : IconColor]
     })
     const colorBtnStar = width.interpolate({
       inputRange: [TOGGE_WIDTH / 2, TOGGE_WIDTH + TOGGE_PADDING],

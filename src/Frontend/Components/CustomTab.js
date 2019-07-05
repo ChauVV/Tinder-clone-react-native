@@ -6,6 +6,7 @@ import {
 } from 'react-native'
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import Toggle from './Toggle'
+import { THEME_DEFAULT } from 'utils/globalStyles'
 
 const IconFontAwesomeAnimated = Animated.createAnimatedComponent(IconFontAwesome)
 const Width = Dimensions.get('window').width
@@ -41,12 +42,12 @@ export default class CustomTab extends React.PureComponent {
     // Animated btn colors
     const colorBtnLeft = scaleBtnLeft.interpolate({
       inputRange: [1, 1.5],
-      outputRange: [IconColor, '#fcca35']
+      outputRange: [IconColor, THEME_DEFAULT.colorPink]
     })
 
     const colorBtnRight = scaleBtnRight.interpolate({
       inputRange: [1, 1.5],
-      outputRange: [IconColor, 'lightgreen']
+      outputRange: [IconColor, THEME_DEFAULT.colorPink]
     })
 
     return (

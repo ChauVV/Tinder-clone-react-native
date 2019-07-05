@@ -41,7 +41,9 @@ export const THEME_DEFAULT = {
   colorDisabled: 'gray', // color for disabled elements.
   colorPlaceholder: '#d8d8d8', // color for placeholder text, such as input placeholder.
   colorLine: '#eee',
-  colorResultCell: '#f2f2f2'
+  colorResultCell: '#f2f2f2',
+  colorPink: '#e95d6c',
+  IconColor: '#e3e5e8'
 }
 
 const styles = StyleSheet.create({

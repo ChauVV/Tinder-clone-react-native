@@ -5,8 +5,9 @@ import {
 } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import CustomTab from 'frontend/Components/CustomTab'
+import Profile from 'frontend/Screens/Profile'
 
-export default class App extends Component {
+export default class ReactMe extends Component {
   goToPage = (index) => {
     this.tabbar.goToPage(index)
   }
@@ -28,11 +29,6 @@ export default class App extends Component {
   }
 }
 
-const Profile = () => {
-  return (
-    <View style={{flex: 1, backgroundColor: '#fcca35'}}/>
-  )
-}
 const Main = () => {
   return (
     <View style={{flex: 1, backgroundColor: '#e35914'}}/>
