@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react'
+import React from 'react'
 import {
   StyleSheet, View, SafeAreaView,
   Image, Text, TouchableOpacity
@@ -26,7 +26,7 @@ const dataSlide = [
   {
     title: 'Control Your Profile',
     icon: 'key',
-    iconColor: '#f5c352',
+    iconColor: 'red',
     descriptions: 'Limit what others see with Tinder Plus',
     btnTitle: 'MY TINDER PLUS',
     btnTextColor: 'red',
@@ -52,7 +52,6 @@ const dataSlide = [
   }]
 
 const renderCardItem = ({item}) => {
-  console.log('item: ', item)
   return (
     <View style={styles.slideItem}>
       <View style={styles.itemLine1}>
@@ -64,7 +63,17 @@ const renderCardItem = ({item}) => {
   )
 }
 
-export default class Profile extends Component {
+const HeaderProfile = ({children}) => {
+  return (
+    <View style={styles.header}>
+      <View style={styles.headerBackground}>
+        <View style={styles.headerRadius}/>
+      </View>
+      {children}
+    </View>
+  )
+}
+export default class Profile extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = ({
@@ -79,19 +88,16 @@ export default class Profile extends Component {
 
     return (
       <SafeAreaView style={styles.container} >
-        <View style={styles.header}>
-          <View style={styles.headerBackground}>
-            <View style={styles.headerRadius}/>
-          </View>
+        <HeaderProfile>
           <Image source={Images.avatar} style={styles.img}/>
           <Text style={styles.name}>Võ, 29</Text>
-          <Text style={styles.job}>{`IT`}</Text>
+          <Text style={styles.job}>{`Information Technology`}</Text>
           <View style={styles.groupBtn}>
             <BtnReactMe icon='cog' title={'SETTINGS'}/>
             <BtnCamera icon='camera' style={styles.btnCenter} title={'ADD MEDIA'}/>
             <BtnReactMe icon='pencil' title={'EDIT INFO'}/>
           </View>
-        </View>
+        </HeaderProfile>
         <View style={styles.bottom}>
           <View style={styles.slide}>
             <Carousel
@@ -103,7 +109,7 @@ export default class Profile extends Component {
               autoplay={true}
               loop={true}
               autoplayDelay={0}
-              autoplayInterval={4000}
+              autoplayInterval={2000}
             />
             <Pagination
               dotsLength={dataSlide.length}
