@@ -25,7 +25,7 @@ class BtnReactMe extends React.PureComponent {
     }).start()
   }
   render () {
-    const { title, onPress, style } = this.props
+    const { title, onPress, style, icon = 'cog' } = this.props
 
     return (
       <View style={[styles.container, style]}>
@@ -39,7 +39,7 @@ class BtnReactMe extends React.PureComponent {
           <Animated.View
             style={[styles.btn, {transform: [ {scale: this.scaleAnimation} ]}]}
           >
-            <IconFontAwesome name='cog' style={{ color: THEME_DEFAULT.colorPlaceholder, fontSize: 25 }} />
+            <IconFontAwesome name={icon} style={{ color: THEME_DEFAULT.colorPlaceholder, fontSize: 25 }} />
           </Animated.View>
         </BtnAnim>
         <Text style={styles.text}>{title}</Text>

@@ -27,6 +27,7 @@ export default class MainToggle extends React.PureComponent {
           initialPage={currentTab}
           renderTabBar={() => <View/>}
           prerenderingSiblingsNumber={1}
+          locked={true}
         >
           <Fire/>
           <Star/>
