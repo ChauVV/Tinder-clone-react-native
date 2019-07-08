@@ -1,15 +1,21 @@
 
 import React, {Component} from 'react'
 import {
-  StyleSheet, View, SafeAreaView
+  StyleSheet, SafeAreaView
 } from 'react-native'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import CustomTab from 'frontend/Components/CustomTab'
 import Profile from 'frontend/Screens/Profile'
+// import PropTypes from 'prop-types'
+import MainToggle from 'frontend/Screens/MainToggle'
+import Chat from 'frontend/Screens/Chat'
 
 export default class ReactMe extends Component {
   goToPage = (index) => {
     this.tabbar.goToPage(index)
+  }
+  toggleTabar = (index) => {
+    this.refs.MainToggle.goToTab(index)
   }
   render () {
     return (
@@ -17,11 +23,11 @@ export default class ReactMe extends Component {
         <ScrollableTabView
           ref = {ref => { this.tabbar = ref }}
           initialPage={1}
-          renderTabBar={() => <CustomTab/>}
+          renderTabBar={() => <CustomTab toggleTabar={this.toggleTabar}/>}
           prerenderingSiblingsNumber={1}
         >
           <Profile/>
-          <Main/>
+          <MainToggle ref={'MainToggle'}/>
           <Chat/>
         </ScrollableTabView>
       </SafeAreaView>
@@ -29,15 +35,10 @@ export default class ReactMe extends Component {
   }
 }
 
-const Main = () => {
-  return (
-    <View style={{flex: 1, backgroundColor: '#e35914'}}/>
-  )
+ReactMe.defaultProps = {
 }
-const Chat = () => {
-  return (
-    <View style={{flex: 1, backgroundColor: 'lightgreen'}}/>
-  )
+
+ReactMe.propTypes = {
 }
 
 const styles = StyleSheet.create({

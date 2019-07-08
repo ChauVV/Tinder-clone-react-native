@@ -12,9 +12,6 @@ import BtnReactMe from 'frontend/Components/BtnReactMe'
 import BtnCamera from 'frontend/Components/BtnCamera'
 
 export default class Profile extends Component {
-  goToPage = (index) => {
-    this.tabbar.goToPage(index)
-  }
   render () {
     return (
       <SafeAreaView style={styles.container} >
@@ -38,6 +35,11 @@ export default class Profile extends Component {
   }
 }
 
+Profile.defaultProps = {
+}
+
+Profile.propTypes = {
+}
 const IconColor = '#f5f7fa'
 const styles = StyleSheet.create({
   btnCenter: {
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     width: height(24),
     height: height(24),
     borderRadius: height(12),
-    marginTop: 20
+    marginTop: 25
   },
   headerRadius: {
     position: 'absolute',

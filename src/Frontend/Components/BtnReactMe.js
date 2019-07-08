@@ -39,7 +39,7 @@ class BtnReactMe extends React.PureComponent {
           <Animated.View
             style={[styles.btn, {transform: [ {scale: this.scaleAnimation} ]}]}
           >
-            <IconFontAwesome name='cog' style={{ color: THEME_DEFAULT.IconColor, fontSize: 25 }} />
+            <IconFontAwesome name='cog' style={{ color: THEME_DEFAULT.colorPlaceholder, fontSize: 25 }} />
           </Animated.View>
         </BtnAnim>
         <Text style={styles.text}>{title}</Text>

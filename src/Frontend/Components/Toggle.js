@@ -7,10 +7,15 @@ import {
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import IconIonicons from 'react-native-vector-icons/Ionicons'
 import { THEME_DEFAULT } from 'utils/globalStyles'
+import PropTypes from 'prop-types'
 
 const IconFontAwesomeAnimated = Animated.createAnimatedComponent(IconFontAwesome)
 const IconIoniconsAnimated = Animated.createAnimatedComponent(IconIonicons)
 const BtnAnimated = Animated.createAnimatedComponent(TouchableOpacity)
+const Index = {
+  Left: 0,
+  Right: 1
+}
 
 export default class Toggle extends React.PureComponent {
   constructor (props) {
@@ -40,7 +45,9 @@ export default class Toggle extends React.PureComponent {
         )
       ]).start()
 
-      this.setState({isLeft: !this.state.isLeft})
+      const newValue = !this.state.isLeft
+      this.props.toggleTabar(newValue ? Index.Left : Index.Right)
+      this.setState({isLeft: newValue})
     } else {
       this.props.goToPage(1)
     }
@@ -92,6 +99,20 @@ export default class Toggle extends React.PureComponent {
       </BtnAnimated>
     )
   }
+}
+
+Toggle.defaultProps = {
+  toggleTabar: () => {},
+  goToPage: () => {},
+  width: {},
+  isActive: true
+}
+
+Toggle.propTypes = {
+  toggleTabar: PropTypes.func,
+  goToPage: PropTypes.func,
+  width: PropTypes.object,
+  isActive: PropTypes.bool
 }
 
 const TOGGE_WIDTH = 80

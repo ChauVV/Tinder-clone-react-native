@@ -7,6 +7,7 @@ import {
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import Toggle from './Toggle'
 import { THEME_DEFAULT } from 'utils/globalStyles'
+import PropTypes from 'prop-types'
 
 const IconFontAwesomeAnimated = Animated.createAnimatedComponent(IconFontAwesome)
 const Width = Dimensions.get('window').width
@@ -23,7 +24,7 @@ export default class CustomTab extends React.PureComponent {
   }
 
   render () {
-    const {goToPage, activeTab} = this.props
+    const {goToPage, activeTab, toggleTabar} = this.props
 
     // Animated btn scale
     const scaleBtnLeft = this.offset.interpolate({
@@ -60,7 +61,7 @@ export default class CustomTab extends React.PureComponent {
             <IconFontAwesomeAnimated name='user' style={{ color: colorBtnLeft, fontSize: 25 }} />
           </Animated.Text>
 
-          <Toggle goToPage={goToPage} width={WidthBtnCenter} isActive={activeTab === 1}/>
+          <Toggle toggleTabar={toggleTabar} goToPage={goToPage} width={WidthBtnCenter} isActive={activeTab === 1}/>
 
           <Animated.Text
             onPress={() => goToPage(2)}
@@ -72,6 +73,20 @@ export default class CustomTab extends React.PureComponent {
       </View>
     )
   }
+}
+
+CustomTab.defaultProps = {
+  goToPage: () => {},
+  toggleTabar: () => {},
+  activeTab: 1,
+  scrollValue: {}
+}
+
+CustomTab.propTypes = {
+  goToPage: PropTypes.func,
+  activeTab: PropTypes.number,
+  scrollValue: PropTypes.object,
+  toggleTabar: PropTypes.func
 }
 
 const NAVI_BTN_SIZE = 36
@@ -92,7 +107,8 @@ const styles = StyleSheet.create({
   },
   headerAnimated: {
     width: Width,
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
