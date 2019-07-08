@@ -5,14 +5,78 @@ import {
   Image, Text, TouchableOpacity
 } from 'react-native'
 import {
-  height
+  height, width, THEME_DEFAULT
 } from 'utils/globalStyles'
+import Carousel, { Pagination } from 'react-native-snap-carousel'
 import Images from 'assets/Images'
 import BtnReactMe from 'frontend/Components/BtnReactMe'
 import BtnCamera from 'frontend/Components/BtnCamera'
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
+
+const dataSlide = [
+  {
+    title: '36 People Like You',
+    icon: 'google-plus-square',
+    iconColor: '#f5c352',
+    descriptions: 'See them now with Tinder Gold',
+    btnTitle: 'SEE WHO LIKES YOU',
+    btnTextColor: '#f5c352',
+    btnAction: () => console.log('btnAction')
+  },
+  {
+    title: 'Control Your Profile',
+    icon: 'key',
+    iconColor: '#f5c352',
+    descriptions: 'Limit what others see with Tinder Plus',
+    btnTitle: 'MY TINDER PLUS',
+    btnTextColor: 'red',
+    btnAction: () => console.log('btnAction')
+  },
+  {
+    title: 'Swipe Around the World',
+    icon: 'map-marker',
+    iconColor: 'blue',
+    descriptions: 'Passport to anywhere with Tinder Plus',
+    btnTitle: 'MY TINDER PLUS',
+    btnTextColor: 'red',
+    btnAction: () => console.log('btnAction')
+  },
+  {
+    title: 'Get Matches Faster',
+    icon: 'bolt',
+    iconColor: '#8e52f5',
+    descriptions: 'Boost your fprofile once a month!',
+    btnTitle: 'MY TINDER PLUS',
+    btnTextColor: 'red',
+    btnAction: () => console.log('btnAction')
+  }]
+
+const renderCardItem = ({item}) => {
+  console.log('item: ', item)
+  return (
+    <View style={styles.slideItem}>
+      <View style={styles.itemLine1}>
+        <IconFontAwesome name={item.icon} style={{ color: item.iconColor, fontSize: 20 }} />
+        <Text style={styles.textItem}>{item.title}</Text>
+      </View>
+      <Text style={styles.textItemSmall}>{item.descriptions}</Text>
+    </View>
+  )
+}
 
 export default class Profile extends Component {
+  constructor (props) {
+    super(props)
+    this.state = ({
+      activeDot: 0
+    })
+  }
+  handleSnapToItem = (index) => {
+    this.setState({ activeDot: index })
+  }
   render () {
+    const { activeDot } = this.state
+
     return (
       <SafeAreaView style={styles.container} >
         <View style={styles.header}>
@@ -30,10 +94,29 @@ export default class Profile extends Component {
         </View>
         <View style={styles.bottom}>
           <View style={styles.slide}>
-
+            <Carousel
+              data={dataSlide}
+              renderItem={renderCardItem}
+              sliderWidth={width(100)}
+              itemWidth={width(100)}
+              onSnapToItem={this.handleSnapToItem}
+              autoplay={true}
+              loop={true}
+              autoplayDelay={0}
+              autoplayInterval={4000}
+            />
+            <Pagination
+              dotsLength={dataSlide.length}
+              activeDotIndex={activeDot}
+              containerStyle={styles.paginationStyle}
+              dotStyle={[styles.dotStyle, {backgroundColor: dataSlide[activeDot].iconColor}]}
+              inactiveDotStyle={styles.inactiveDotStyle}
+              inactiveDotOpacity={0.5}
+              inactiveDotScale={1.2}
+            />
           </View>
-          <TouchableOpacity style={styles.btnSee}>
-            <Text style={styles.btnSeeText}>SEE WHO LIKES YOU</Text>
+          <TouchableOpacity style={styles.btnSee} onPress={() => dataSlide[activeDot].btnAction()}>
+            <Text style={[styles.btnSeeText, {color: dataSlide[activeDot].btnTextColor}]}>{dataSlide[activeDot].btnTitle}</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -48,16 +131,54 @@ Profile.propTypes = {
 }
 const IconColor = '#f5f7fa'
 const styles = StyleSheet.create({
+  textItemSmall: {
+    fontWeight: '400',
+    fontSize: 16,
+    marginTop: 15
+  },
+  textItem: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginLeft: 5
+  },
+  itemLine1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  slideItem: {
+    width: '100%',
+    height: 100,
+    alignItems: 'center',
+    paddingTop: 10
+  },
+  inactiveDotStyle: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: THEME_DEFAULT.colorPlaceholder
+  },
+  dotStyle: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#f5c352'
+  },
+  paginationStyle: {
+    position: 'absolute',
+    alignSelf: 'center',
+    zIndex: 1,
+    bottom: -20
+  },
   slide: {
     width: '100%',
     height: 100,
-    backgroundColor: 'gray'
+    marginBottom: 10
   },
   btnSeeText: {
     color: '#f5c352',
     fontWeight: 'bold',
     fontSize: 16
-
   },
   btnSee: {
     justifyContent: 'center',

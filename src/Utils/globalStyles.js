@@ -43,7 +43,8 @@ export const THEME_DEFAULT = {
   colorLine: '#eee',
   colorResultCell: '#f2f2f2',
   colorPink: '#e95d6c',
-  IconColor: '#e3e5e8'
+  IconColor: '#e3e5e8',
+  IconDetail: '#cfcccc'
 }
 
 const styles = StyleSheet.create({

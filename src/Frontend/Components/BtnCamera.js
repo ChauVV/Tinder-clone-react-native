@@ -6,6 +6,7 @@ import {
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import { THEME_DEFAULT } from 'utils/globalStyles'
 import PropTypes from 'prop-types'
+import LinearGradient from 'react-native-linear-gradient'
 
 const BtnAnim = Animated.createAnimatedComponent(TouchableOpacity)
 const BtnReactMe = ({title, onPress, style, icon = 'cog'}) => {
@@ -15,7 +16,9 @@ const BtnReactMe = ({title, onPress, style, icon = 'cog'}) => {
         onPress={() => onPress}
         style={[styles.btnView]}
       >
-        <IconFontAwesome name={icon} style={{ color: THEME_DEFAULT.IconColor, fontSize: 30 }} />
+        <LinearGradient colors={['#f56852', 'red', 'red']} style={styles.linearGradient}>
+          <IconFontAwesome name={icon} style={{ color: THEME_DEFAULT.IconColor, fontSize: 30 }} />
+        </LinearGradient>
         <View style={styles.plusView}>
           <IconFontAwesome name={'plus'} style={{ color: 'red', fontSize: 12 }} />
         </View>
@@ -42,6 +45,15 @@ BtnReactMe.propTypes = {
 const BTN_WIDTH = 60
 
 const styles = StyleSheet.create({
+  linearGradient: {
+    width: BTN_WIDTH,
+    height: BTN_WIDTH,
+    borderRadius: BTN_WIDTH / 2,
+    backgroundColor: 'red',
+
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   plusView: {
     backgroundColor: 'white',
     height: 20,
