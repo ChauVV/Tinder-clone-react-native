@@ -1,4 +1,4 @@
-# React-Native-Tinder-Tabbar
+# Tinder clone in React Native
 
 ## Install
 
