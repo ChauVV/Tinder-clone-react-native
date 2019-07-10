@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import {
   StyleSheet, SafeAreaView
 } from 'react-native'
+import { connect } from 'react-redux'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import CustomTab from 'frontend/Components/CustomTab'
 import Profile from 'frontend/Screens/Profile'
@@ -10,7 +11,13 @@ import Profile from 'frontend/Screens/Profile'
 import MainToggle from 'frontend/Screens/MainToggle'
 import Chat from 'frontend/Screens/Chat'
 
-export default class ReactMe extends Component {
+class ReactMe extends Component {
+  constructor (props) {
+    super(props)
+    this.state = ({
+      currentPage: 1
+    })
+  }
   goToPage = (index) => {
     this.tabbar.goToPage(index)
   }
@@ -23,8 +30,10 @@ export default class ReactMe extends Component {
         <ScrollableTabView
           ref = {ref => { this.tabbar = ref }}
           initialPage={1}
-          renderTabBar={() => <CustomTab toggleTabar={this.toggleTabar}/>}
+          renderTabBar={() => <CustomTab goToPage={this.goToPage} toggleTabar={this.toggleTabar}/>}
           prerenderingSiblingsNumber={1}
+          locked={this.state.currentPage === 1}
+          onChangeTab={({i}) => this.setState({currentPage: i})}
         >
           <Profile/>
           <MainToggle ref={'MainToggle'}/>
@@ -35,9 +44,14 @@ export default class ReactMe extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+})
+const mapactionsTypeToProps = (dispatch) => ({
+})
+export default connect(mapStateToProps, mapactionsTypeToProps)(ReactMe)
+
 ReactMe.defaultProps = {
 }
-
 ReactMe.propTypes = {
 }
 

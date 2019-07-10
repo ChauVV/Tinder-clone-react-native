@@ -20,7 +20,6 @@
     "prop-types": "^15.6.2",
     "react": "16.8.3",
     "react-native": "0.59.9",
-    "react-native-card-stack-swiper": "^1.1.0",
     "react-native-device-info": "^2.1.2",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-iphone-x-helper": "^1.2.0",

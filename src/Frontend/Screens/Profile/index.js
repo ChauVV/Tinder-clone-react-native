@@ -12,6 +12,7 @@ import Images from 'assets/Images'
 import BtnReactMe from 'frontend/Components/BtnReactMe'
 import BtnCamera from 'frontend/Components/BtnCamera'
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
+import { connect } from 'react-redux'
 
 const dataSlide = [
   {
@@ -73,7 +74,7 @@ const HeaderProfile = ({children}) => {
     </View>
   )
 }
-export default class Profile extends React.PureComponent {
+class Profile extends React.PureComponent {
   constructor (props) {
     super(props)
     this.state = ({
@@ -130,11 +131,17 @@ export default class Profile extends React.PureComponent {
   }
 }
 
+const mapStateToProps = (state) => ({
+})
+const mapactionsTypeToProps = (dispatch) => ({
+})
+export default connect(mapStateToProps, mapactionsTypeToProps)(Profile)
+
 Profile.defaultProps = {
 }
-
 Profile.propTypes = {
 }
+
 const IconColor = '#f5f7fa'
 const styles = StyleSheet.create({
   textItemSmall: {

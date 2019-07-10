@@ -34,7 +34,7 @@
           2,
           2
       ],
-      "template-tag-spacing": ["error", "never"]
+      "template-tag-spacing": ["error", "never"],
   },
   "globals": {
       "fetch": true,

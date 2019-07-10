@@ -1,22 +1,31 @@
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import { connect } from 'react-redux'
 
-import React, {Component} from 'react'
-import {
-  // StyleSheet,
-  View
-} from 'react-native'
-// import {
-//   height
-// } from 'utils/globalStyles'
-
-export default class Chat extends Component {
+class Chat extends React.PureComponent {
   render () {
     return (
-      <View style={{flex: 1, backgroundColor: 'lightgreen'}}/>
+      <View style={styles.container}>
+
+      </View>
     )
   }
 }
 
-// const IconColor = '#f5f7fa'
-// const styles = StyleSheet.create({
+const mapStateToProps = (state) => ({
+})
+const mapactionsTypeToProps = (dispatch) => ({
+})
+export default connect(mapStateToProps, mapactionsTypeToProps)(Chat)
 
-// })
+Chat.defaultProps = {
+}
+Chat.propTypes = {
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'lightgreen'
+  }
+})
