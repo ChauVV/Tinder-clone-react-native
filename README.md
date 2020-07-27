@@ -6,7 +6,7 @@
 $ yarn
 $ cd ios && pod install
 
-$ npm run ios
+$ yarn ios
 ```
 
 ## Demo
