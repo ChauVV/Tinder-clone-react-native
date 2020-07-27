@@ -45,6 +45,6 @@ MainToggle.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e35914'
+    backgroundColor: 'lightgray'
   }
 })
