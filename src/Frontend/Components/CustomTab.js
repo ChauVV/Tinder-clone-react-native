@@ -2,7 +2,7 @@
 import React from 'react'
 import {
   StyleSheet, View,
-  Animated, Dimensions
+  Animated, Dimensions, TouchableOpacity
 } from 'react-native'
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome'
 import Toggle from './Toggle'
@@ -10,6 +10,7 @@ import { THEME_DEFAULT } from 'utils/globalStyles'
 import PropTypes from 'prop-types'
 
 const IconFontAwesomeAnimated = Animated.createAnimatedComponent(IconFontAwesome)
+const BtnAnimated = Animated.createAnimatedComponent(TouchableOpacity)
 const Width = Dimensions.get('window').width
 
 export default class CustomTab extends React.PureComponent {
@@ -54,21 +55,21 @@ export default class CustomTab extends React.PureComponent {
     return (
       <View style={[styles.header]}>
         <Animated.View style={[styles.headerAnimated, {marginLeft: this.offset}]}>
-          <Animated.Text
+          <BtnAnimated
             onPress={() => goToPage(0)}
             style={[styles.Btn, { transform: [{scale: scaleBtnLeft}] }]}
           >
             <IconFontAwesomeAnimated name='user' style={{ color: colorBtnLeft, fontSize: 25 }} />
-          </Animated.Text>
+          </BtnAnimated>
 
           <Toggle toggleTabar={toggleTabar} goToPage={goToPage} width={WidthBtnCenter} isActive={activeTab === 1}/>
 
-          <Animated.Text
+          <BtnAnimated
             onPress={() => goToPage(2)}
             style={[styles.Btn, {transform: [ {scale: scaleBtnRight} ]}]}
           >
             <IconFontAwesomeAnimated name='comments' style={{ color: colorBtnRight, fontSize: 25 }} />
-          </Animated.Text>
+          </BtnAnimated>
         </Animated.View>
       </View>
     )
@@ -99,8 +100,7 @@ const styles = StyleSheet.create({
   Btn: {
     width: NAVI_BTN_SIZE,
     justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center'
+    alignItems: 'center'
   },
   header: {
     width: Width

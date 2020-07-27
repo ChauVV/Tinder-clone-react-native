@@ -74,14 +74,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
 SPEC CHECKSUMS:
-  BVLinearGradient: b0b70acf63ee888829b7c2ebbf6b50e227396e55
-  React: 1d605e098d69bdf08960787f3446f0a9dc2e2ccf
-  react-native-spinkit: c9f5826e1a0bf0da889b3795278eb96ae15c1350
-  RNDeviceInfo: 5b5b42b12587207b6bd686441ac42d19d8e07933
-  RNGestureHandler: 7ccf2f3f60458e084f9ada01fbaf610f6fef073c
-  RNVectorIcons: 66af4d5c8ff4f584c7b7cd9c4b0780920f27fce2
-  yoga: 128daf064cacaede0c3bb27424b6b4c71052e6cd
+  BVLinearGradient: 8cbc5155c978f2e43098818c91d206d07aae6d30
+  React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
+  react-native-spinkit: 9a5d2f95aa975d5660fd3e76b7eac38e7329e46c
+  RNDeviceInfo: 94d7ce92098f9653c93b8306b7dc40a761d145ff
+  RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
 PODFILE CHECKSUM: c04785212d6266c86721dc768c0c696da3bc964c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

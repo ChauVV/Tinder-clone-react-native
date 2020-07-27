@@ -81,8 +81,8 @@ export default class Toggle extends React.PureComponent {
       >
         {isActive &&
           <View style={{position: 'absolute', width: '100%', height: '100%'}}>
-            <Animated.View style={[styles.bgGray, {backgroundColor: backgroundColor, opacity: opacity}]}/>
-            <Animated.View style={[styles.bgYellow, {width: this.widthYellow, opacity: opacity}]}/>
+            <Animated.View style={[styles.bgGray, {backgroundColor: backgroundColor, opacity}]}/>
+            <Animated.View style={[styles.bgYellow, {width: this.widthYellow, opacity}]}/>
           </View>
         }
         {isActive && <Animated.View style={[styles.btnToggle, styles.shadow, {left: this.left}]}/>}
@@ -122,7 +122,6 @@ const IconColor = '#e3e5e8'
 const styles = StyleSheet.create({
   bgYellow: {
     height: '100%',
-    borderRadius: TOGGE_WIDTH / 4,
     position: 'absolute',
     right: 0,
     backgroundColor: 'yellow'
@@ -130,7 +129,6 @@ const styles = StyleSheet.create({
   bgGray: {
     width: '100%',
     height: '100%',
-    borderRadius: TOGGE_WIDTH / 4,
     position: 'absolute'
   },
   shadow: {
@@ -157,6 +155,7 @@ const styles = StyleSheet.create({
   },
   toggle: {
     height: 40,
+    overflow: 'hidden',
     flexDirection: 'row',
     borderRadius: TOGGE_WIDTH / 4,
     justifyContent: 'space-between'

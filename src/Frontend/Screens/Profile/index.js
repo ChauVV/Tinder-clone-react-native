@@ -39,7 +39,7 @@ const dataSlide = [
     iconColor: 'blue',
     descriptions: 'Passport to anywhere with Tinder Plus',
     btnTitle: 'MY TINDER PLUS',
-    btnTextColor: 'red',
+    btnTextColor: 'blue',
     btnAction: () => console.log('btnAction')
   },
   {
@@ -48,7 +48,7 @@ const dataSlide = [
     iconColor: '#8e52f5',
     descriptions: 'Boost your fprofile once a month!',
     btnTitle: 'MY TINDER PLUS',
-    btnTextColor: 'red',
+    btnTextColor: '#8e52f5',
     btnAction: () => console.log('btnAction')
   }]
 
