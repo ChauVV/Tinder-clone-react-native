@@ -15,7 +15,7 @@
     "fix": "cd node_modules/react-native/third-party/glog-*&&../../scripts/ios-configure-glog.sh"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "react": "16.8.3",
